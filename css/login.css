@@ -1,0 +1,158 @@
+@charset "UTF-8";
+
+body{
+    background: 0 0;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    outline: 0;
+	font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    line-height: 26px;
+    font-weight: 400;
+    overflow-x: hidden!important;
+    -webkit-font-smoothing: antialiased
+}
+html {
+    height: 100%;
+    margin: 0!important;
+    -webkit-transition: all .33s ease-out;
+    -moz-transition: all .33s ease-out;
+    transition: all .33s ease-out;
+    overflow-y: scroll!important
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 600;
+    font-family: Poppins, sans-serif;
+    letter-spacing: -.5px
+}
+h1 {
+    font-size: 72px
+}
+h2 {
+    font-size: 30px;
+    line-height: 1.25em
+}
+h3 {
+    font-size: 23px
+}
+h4 {
+    font-size: 15px;
+    line-height: 1.8em;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    color: #8e8e8e
+}
+h5,
+h6 {
+    font-family: Poppins, sans-serif
+}
+h5 {
+    font-size: 18px;
+    line-height: 1.35em;
+    font-weight: 600;
+    letter-spacing: -.5px
+}
+h6 {
+    font-size: 15px;
+    line-height: 1.6em;
+    font-weight: 500;
+    letter-spacing: 0
+}
+
+p {
+    margin: 10px 0
+}
+
+
+.css-logo {
+    height: 20%;
+    -webkit-transition: opacity .2s ease;
+    -moz-transition: opacity .2s ease;
+    transition: opacity .2s ease;
+    padding: 10 10px;
+}
+
+.qodef-content .qodef-content-inner>.qodef-container>.qodef-container-inner {
+    padding: 30px 0
+}
+
+.qodef-container-inner {
+    width: 1100px;
+    margin: 0 auto
+}
+
+.css-alinhamento-menu {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 0 30px;
+    box-sizing: border-box
+}
+
+
+.css-alinhamento-menu .css-position-menu {
+    position: relative;
+    float: left;
+    z-index: 2;
+    height: 100%
+}
+
+.css-alinhamento-menu .qodef-position-right {
+    position: relative;
+    float: right;
+    z-index: 2;
+    height: 100%;
+    text-align: right
+}
+
+.qodef-page-header {
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    vertical-align: middle;
+    width: 100%;
+    z-index: 110
+}
+
+.qodef-page-header .css-menu-area {
+    height: 85px;
+    position: relative;
+    -webkit-transition: background-color .3s ease;
+    -moz-transition: background-color .3s ease;
+    transition: background-color .3s ease
+}
+
+.qodef-title.qodef-content-center-alignment {
+    text-align: center
+}
+.qodef-title.qodef-title-image-not-responsive .qodef-title-image {
+    display: none
+}
+.qodef-title .qodef-title-holder {
+    display: table;
+    height: 100%;
+    position: relative;
+    width: 100%
+}
+.qodef-title .qodef-title-holder .qodef-container {
+    background-color: transparent;
+    display: table-row;
+    vertical-align: middle
+}
+.qodef-title .qodef-title-holder .qodef-container-inner {
+    display: table-cell;
+    padding: 0!important;
+    vertical-align: middle
+}
+.qodef-title .qodef-title-holder h1 {
+    color: #fff;
+    display: inline-block;
+    line-height: 1em;
+    vertical-align: middle;
+    letter-spacing: -3px
+}

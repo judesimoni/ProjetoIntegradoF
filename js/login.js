@@ -66,3 +66,14 @@ $(function() {
 $('#name').focus(function() {
   $('#success').html('');
 });
+
+function validaAcesso(){
+   var email = document.getElementById("idEmail").value;
+   var senha  = document.getElementById("idSenha");
+
+   if(email = "judesimoni@hotmail.com"){
+      alert("Correto!");
+   }else{
+      alert("Errado");
+   }
+ }
