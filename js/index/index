@@ -1,0 +1,6 @@
+$(document).ready(function(){
+    $("#teste").click(function(){
+    	console.log("aqui");
+        $("#modalCarrinho").modal();
+    });
+});
