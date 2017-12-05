@@ -98,9 +98,11 @@
 				</div>
 				<div id="cadastrar" class="tab-pane fade modal-body">
 					<form id="formCadastrar" method=post>
-						<input type="text" class="form-control" name="nome" placeholder="Nome" required="" id="idNomeLogin">
-						<input type="email" class="form-control" name="email" placeholder="Email" required="" id="idEmailLogin">
-						<input type="password" class="form-control" name="pass" placeholder="Senha:" required="" id="idSenhaLogin">
+						<input type="text" class="form-control" name="nome" placeholder="Nome" required="" id="idNomeCadastro">
+						<input type="email" class="form-control" name="email" placeholder="Email" required="" id="idEmailCadastro">
+						<input type="text" class="form-control" name="cpf" placeholder="CPF" required="" id="idCPFCadastro" maxlength="11">
+						<input type="text" class="form-control" name="telefone" placeholder="Telefone" required="" id="idTelefoneCadastro">
+						<input type="password" class="form-control" name="pass" placeholder="Senha:" required="" id="idSenhaCadastro">
 						<input type="submit" name="login" class="login loginmodal-submit" value="Entrar" onclick="validaLogin();">
 					</form>
 				</div>
