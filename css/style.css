@@ -1086,7 +1086,8 @@ color:#fff;
     font-size: 25px;
 }
 .messsage_contant .single_message_left .btn-lg{
-	width:40%;
+	width:25%;
+	font-family:'Shadows Into Light', cursive;
 }
 
 .btn-primary {
