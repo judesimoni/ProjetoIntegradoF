@@ -66,8 +66,8 @@
 							<li><a href="#products">Produtos</a></li>
 							<li><a href="#team">Time</a></li>
 							<li><a href="#contact">Contato</a></li>
-							<li><a href="#login">Login</a></li>
-							
+							<li><a href="#login" data-toggle="modal" data-target="#login-modal">Login</a></li>
+
 						  </ul>
 						</div><!-- /.navbar-collapse -->
 					  </div><!-- /.container-fluid -->
@@ -79,6 +79,37 @@
 			
 		</div>
 	</header> <!--End of header -->
+
+<div class="modal fade" id="login-modal" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content modal-sm center-block">
+			<ul class="nav nav-tabs">
+		    	<li class="active"><a data-toggle="tab" href="#login">Login</a></li>
+		    	<li><a data-toggle="tab" href="#cadastrar">Cadastrar</a></li>
+			</ul>
+
+			<div class="tab-content">
+				<div id="login" class="tab-pane fade in active modal-body">
+					<form id="formLogin" method=post>
+						<input type="email" class="form-control" name="email" placeholder="Email" required="" id="idEmailLogin">
+						<input type="password" class="form-control" name="pass" placeholder="Senha:" required="" id="idSenhaLogin">
+						<input type="submit" name="login" class="login loginmodal-submit" value="Entrar" onclick="validaLogin();">
+					</form>
+				</div>
+				<div id="cadastrar" class="tab-pane fade modal-body">
+					<form id="formCadastrar" method=post>
+						<input type="text" class="form-control" name="nome" placeholder="Nome" required="" id="idNomeLogin">
+						<input type="email" class="form-control" name="email" placeholder="Email" required="" id="idEmailLogin">
+						<input type="password" class="form-control" name="pass" placeholder="Senha:" required="" id="idSenhaLogin">
+						<input type="submit" name="login" class="login loginmodal-submit" value="Entrar" onclick="validaLogin();">
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
 
 	<section id="banner" class="banner">
 		<div class="banner_overlay">
@@ -537,21 +568,18 @@
 			<div class="modal fade" id="myModal" role="dialog">
 	    		<div class="modal-dialog modal-sm">
 	      			<div class="modal-content">
-	        			<div class="modal-header">
-	          				<button type="button" class="close" data-dismiss="modal">&times;</button>
+	        			<div class="single_header">
 	          				<h4 class="modal-title">Adicionar ao carrinho</h4>
 	        			</div>
 	        			<div class="modal-body">
 	          				<p>
 								<label for="usr">Quantidade:</label>
-								<input type="number" class="form-control" id="quantidadeBrigadeiros">
-			  				</p>
-	        			</div>
-				        <div class="modal-footer">
-				          <button type="button" class="btn btn-default" data-dismiss="modal">
+								<input type="number" class="form-carrinho" id="quantidadeBrigadeiros" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
+								<button type="button" class="btn btn-carrinho" data-dismiss="modal">
 							<i class="fa fa-shopping-cart fa-2x"></i>
 				          </button>
-				        </div>
+			  				</p>
+	        			</div>
 	      			</div>
 	    		</div>
 	 		</div>

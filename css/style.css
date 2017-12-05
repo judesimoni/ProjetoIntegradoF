@@ -587,8 +587,15 @@ a:hover{
 }
 .single_steps p{
 	line-height: 25px;
-	font-family:'amatic';
-	font-size:18px;
+	font-family:'Nova Mono', monospace;
+	font-size:14px;
+}
+
+.modal-body input {
+	width: 100%;
+	display: block;
+	padding:5px;
+	margin:5px;
 }
 
 
@@ -664,6 +671,7 @@ a:hover{
 
 .single_service_area_four{
     background: url(../images/about/4.jpg) no-repeat right top;
+    margin-left: -12%
 
 }
 
@@ -675,6 +683,19 @@ a:hover{
 	color: #7b509a;
 	font-family:'Mystery Quest', cursive;
 	font-size:20px;
+	
+}
+.single_product h4{
+	color: #7b509a;
+	font-family:'Mystery Quest', cursive;
+	font-size:20px;
+	
+}
+.single_header h4{
+	color: #7b509a;
+	font-family:'Mystery Quest', cursive;
+	font-size:20px;
+	padding: 13px 19px 0px 33px
 	
 }
 .single_service p{
@@ -699,6 +720,30 @@ a:hover{
 	padding:100px 0px;
 }
 
+
+.form-carrinho{
+	display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size:20px;
+    text-align: center
+}
+
+
+.btn-carrinho{
+	color: #7FFF00;
+    background-color: #e6e4e4;
+    margin-left: 63%;
+    margin-top: 10%;
+}
 
 .main_business_content h2{
     color: #fff;
@@ -1126,3 +1171,50 @@ color:#fff;
 
 }
 
+.loginmodal-container {
+  padding: 30px;
+  max-width: 350px;
+  width: 100% !important;
+  background-color: #F7F7F7;
+  margin: 0 auto;
+  border-radius: 2px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  font-family: roboto;
+}
+
+.loginmodal-container h1 {
+  text-align: center;
+  font-size: 1.8em;
+  font-family: roboto;
+}
+
+.loginmodal-container input[type=submit] {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.loginmodal-container input[type=text], input[type=password] {
+  height: 44px;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 10px;
+  -webkit-appearance: none;
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-top: 1px solid #c0c0c0;
+  /* border-radius: 2px; */
+  padding: 0 8px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.loginmodal-container input[type=text]:hover, input[type=password]:hover {
+  border: 1px solid #b9b9b9;
+  border-top: 1px solid #a0a0a0;
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
