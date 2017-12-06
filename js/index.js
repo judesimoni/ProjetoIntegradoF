@@ -1,3 +1,6 @@
+var infosUsuario = ''; 
+
+
 function somenteNumeros(num) {
     var er = /[^0-9.]/;
     er.lastIndex = 0;
@@ -8,12 +11,21 @@ function somenteNumeros(num) {
 }
 
 function validaLogin(){
-	var email = document.getElementById("idEmailLogin");
-	var senha = document.getElementById("idEmailSenha");
+	var email = $('#idEmailLogin').val();
+	var senha = $('#idSenhaLoginz').val();
 
-	if(email ="jsimoni@ciandt.com"){
-		alert("I am an alert box!");
-	}
+  $.ajax({
+    url:    'http://localhost:52926/api/cliente/logon',
+    type:   "post",
+    dataType:"json",
+    data:   {'email': email, 'senha': senha},
+    async: false,
+    success: function( data ){
+        retorno = data;
+        infosUsuario = retorno;
+    
+    }
+});
 }
 
 
