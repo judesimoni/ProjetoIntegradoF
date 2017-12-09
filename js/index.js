@@ -1,5 +1,10 @@
 var infosUsuario = ''; 
 
+$(document).ready(function(){
+    $("#entrarButton").click(function(){
+        $("a#products")[0].click();
+    });
+});
 
 function somenteNumeros(num) {
     var er = /[^0-9.]/;
@@ -12,10 +17,10 @@ function somenteNumeros(num) {
 
 function validaLogin(){
 	var email = $('#idEmailLogin').val();
-	var senha = $('#idSenhaLoginz').val();
-
+	var senha = $('#idSenhaLogin').val();
+    
   $.ajax({
-    url:    'http://localhost:52926/api/cliente/logon',
+    url:    'http://localhost/SweetDream.API/api/cliente/logon',
     type:   "post",
     dataType:"json",
     data:   {'email': email, 'senha': senha},
@@ -23,7 +28,15 @@ function validaLogin(){
     success: function( data ){
         retorno = data;
         infosUsuario = retorno;
-    }
+
+        window.location.href = "areaLogada.html";
+
+    } ,
+    error: function( result ) {
+        
+        swal("Erro ao efetuar login!", "Verifique as informações digitadas e tente novamente", "error");
+
+    }  
 });
 }
 
@@ -34,21 +47,42 @@ function cadastrarUsuario(){
     var telefone = $('#idTelefoneCadastro').val();
     var senha = $('#idSenhaCadastro').val();
 
-    var data = {
-        "email": email,
-        "senha": senha,
-        "nome" : nome,
-        "telefone": telefone
+    if(!nome || !email || !cpf || !telefone || !senha) {
+        swal("Ocorreu um erro!", "Verifique se todos os campos foram preenchidos.", "error");
     }
+    
+    else {
+        var data = {
+            "email": email,
+            "senha": senha,
+            "nome" : nome,
+            "telefone": telefone
+        }
+    
+      $.ajax({
+        url:    'http://localhost/SweetDream.API/api/cliente/',
+        type:   "post",
+        dataType:"json",
+        data:  data,
+        async: false,
+        success: function( data ){
+            $('#idNomeCadastro').val("");
+            $('#idEmailCadastro').val("");
+            $('#idCPFCadastro').val("");
+            $('#idTelefoneCadastro').val("");
+            $('#idSenhaCadastro').val("");     
+           
+           swal("Cadastro realizado com sucesso!", "Efetue o login com o usuário e senha criados!", "success");           
+    
+        },
+        error: function ( response ) {
+            swal("Ocorreu um erro!", "Verifique as informações digitadas e tente novamente", "error");
+        } 
+    });
+    }
+    
+}
 
-  $.ajax({
-    url:    'http://localhost:52926/api/cliente/',
-    type:   "post",
-    dataType:"json",
-    data:  data,
-    async: false,
-    success: function( data ){
-        console.log('retorno cadastro', data)
-    }
-});
+function areaLogada() {
+
 }
