@@ -1230,6 +1230,10 @@ ul {
     list-style-type: none;
 }
 
+.footer{
+	font-family: fantasy;
+}
+
 .columnCaptions {
     color: #7e93a7;
     font-size: 12px;
