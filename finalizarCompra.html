@@ -74,137 +74,62 @@
       <!--End of header -->
       <section id="cart" class="steps">
          <div class="head_title text-center wow zoomIn" data-wow-duration="0.5s">
-            <h2>Carrinho de Compras</h2>
+            <h2>Finalizar Compra</h2>
             <div class="separetor"></div>
          </div>
 
          
-         <div class="container">
+          <div class="container">
             <div class="row">
                <div class="col-sm-12 col-md-10 col-md-offset-1">
                   <table class="table table-hover">
                      <thead>
                         <tr>
-                           <th>Produto</th>
-                           <th>Quantidade</th>
-                           <th class="text-center">Preço Unitário</th>
-                           <th class="text-center">Preço Total</th>
-                           <th> </th>
+                           <th>Rua</th>
+                           <th>Bairro</th>
+                           <th>Número</th>
+                           <th>CEP</th>
                         </tr>
                      </thead>
 
-                     <div id="itens">
+                     <div>
                         <tbody>
                         <tr>
-                           <td class="col-sm-8 col-md-6">
-                              <div class="single_header">
-                                 <h4 id="produtos"></h4>
-                              </div>
-                           </td>
-                           <td class="col-sm-1 col-md-1 text-center" id="quantidade"></td>
-                           <td class="col-sm-1 col-md-1 text-center" id="precoUnitario"></td>
-                           <td class="col-sm-1 col-md-1 text-center" id="precoTotal"></td>
+                           <td class="col-sm-1 col-md-1 text-center"><input type="text" class="form-control" name="rua" placeholder="Rua" required="" id="idRua"></td>
+                           <td class="col-sm-1 col-md-1 text-center"><input type="text" class="form-control" name="bairro" placeholder="Bairro" required="" id="idBairro"></td>
+                           <td class="col-sm-1 col-md-1 text-center"><input type="text" class="form-control" name="numero" placeholder="Número" required="" id="idNumero"></td>
+                           <td class="col-sm-1 col-md-1 text-center"><input type="text" class="form-control" name="cep" placeholder="CEP" required="" id="idCEP"></td>
                         </tr>
                      </tbody>
 
                      </div>
-                     <!--
-                     <tbody>
+                     </tbody>
+                  </table>
+
+                  <table class="table table-hover">
+                     <thead>
                         <tr>
-                           <td class="col-sm-8 col-md-6">
-                              <div class="single_header">
-                                 <h4>Brigadeiro de Nutella</h4>
-                              </div>
-                           </td>
-                           <td class="col-sm-1 col-md-1">
-                              <input type="number" class="form-carrinho" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
-                           </td>
-                           <td class="col-sm-1 col-md-1 text-center"><strong>R$4.87</strong></td>
-                           <td class="col-sm-1 col-md-1 text-center"><strong>R$14.61</strong></td>
-                           <td class="col-sm">
-                              <a href="#">
-                              <span class="glyphicon glyphicon-remove"></span>
-                              </a>
-                           </td>
+                           <th>Cartão</th>
                         </tr>
+                     </thead>
+
+                     <div>
+                        <tbody>
                         <tr>
-                           <td class="col-md-6">
-                              <div class="single_header">
-                                 <h4>Brigadeiro Crispy</h4>
-                              </div>
-                           </td>
-                           <td class="col-md-1" style="text-align: center">
-                              <input type="number" class="form-carrinho" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
-                           </td>
-                           <td class="col-md-1 text-center"><strong>R$4.99</strong></td>
-                           <td class="col-md-1 text-center"><strong>R$9.98</strong></td>
-                           <td class="col-sm">
-                              <a href="#">
-                              <span class="glyphicon glyphicon-remove"></span>
-                              </a>
-                           </td>
-                        </tr>-->
-                        <tr class="head_title">
-                           <td>   </td>
-                           <td>   </td>
-                           <td>   </td>
-                           <td>
-                              <h2>Total</h2>
-                           </td>
-                           <td class="text-right">
-                              <div>
-                                 <h2>
-                                    R$ <span id="total"></span>
-                                 </h2>
-                              </div>
-                           </td>
+                           <td class="col-sm-1 col-md-1 text-center"><input type="text" class="form-control" name="cartao" placeholder="Cartão" required="" id="idCartao"></td>
                         </tr>
+                     </tbody>
+
+                     </div>
                         <tr>
-                           <td>   </td>
-                           <td>   </td>
-                           <td>   </td>
                            <td>
-                              <button type="button" class="btn btn-default">
-                                 <span class="glyphicon glyphicon-shopping-cart"><a href="areaLogada.html"></span> Continuar Comprando
-                              </button>
-                           </td>
-                           <td>
-                              <button type="button" class="btn btn-lg"><a href="finalizarCompra.html">Finalizar</a></button>
-                           </td>
-                           <td>
-                              <button type="button" onclick=" localStorage.clear(); location.reload();"> Limpar carrinho </button>
+                              <button type="button" class="btn btn-lg"> Finalizar</button>
                            </td>
                         </tr>
                      </tbody>
                   </table>
                </div>
             </div>
-
-            <script>
-             var total = 0; // variável que retorna o total dos produtos que estão na LocalStorage.
-             var i = 0;     // variável que irá percorrer as posições
-             var valor = 0; // variável que irá receber o preço do produto convertido em Float.
-             
-             for(i=1; i<=99; i++) // verifica até 99 produtos registrados na localStorage
-             {
-                var prod = localStorage.getItem("produto" + i + ""); // verifica se há recheio nesta posição. 
-                if(prod != null) 
-                { 
-                   // exibe os dados da lista dentro da div itens
-                   document.getElementById("quantidade").innerHTML += localStorage.getItem("qtd" + i);
-                   document.getElementById("produtos").innerHTML += localStorage.getItem("produto" + i);
-                   document.getElementById("precoUnitario").innerHTML += "R$: " + localStorage.getItem("valor" + i)/localStorage.getItem("qtd" + i) + ".00";
-                   document.getElementById("precoTotal").innerHTML += "R$: " + localStorage.getItem("valor" + i) + ".00";
-                   
-                   // calcula o total dos recheios
-                   valor = parseFloat(localStorage.getItem("valor" + i)); // valor convertido com o parseFloat()
-                   total = (total + valor); // arredonda para 2 casas decimais com o .toFixed(2)
-                }
-             } 
-             // exibe o total dos recheios
-             document.getElementById("total").innerHTML = total.toFixed(2); 
-            </script>
-         </div>
       </section>
 
       <!-- Footer -->
