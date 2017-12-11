@@ -217,9 +217,10 @@ a:hover{
 	color:#000;
 }
 .btn-lg{
-	background:#7FFF00;
-	color:#fff;
+	background:#cbcec9;
+	color:#337ab7;
 	border:1px solid #7FFF00;
+	font-family:'Shadows Into Light', cursive;
 }
 .btn-lg:hover{
 	background:#7FFF00;
@@ -318,6 +319,7 @@ a:hover{
 }
 .container-fluid {
     margin-top: 15px;
+
 }
 
 .main_menu_bg{
