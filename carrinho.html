@@ -77,7 +77,8 @@
             <h2>Carrinho de Compras</h2>
             <div class="separetor"></div>
          </div>
-         </div>
+
+         
          <div class="container">
             <div class="row">
                <div class="col-sm-12 col-md-10 col-md-offset-1">
@@ -91,6 +92,23 @@
                            <th> </th>
                         </tr>
                      </thead>
+
+                     <div id="itens">
+                        <tbody>
+                        <tr>
+                           <td class="col-sm-8 col-md-6">
+                              <div class="single_header">
+                                 <h4 id="produtos"></h4>
+                              </div>
+                           </td>
+                           <td class="col-sm-1 col-md-1 text-center" id="quantidade"></td>
+                           <td class="col-sm-1 col-md-1 text-center" id="precoUnitario"></td>
+                           <td class="col-sm-1 col-md-1 text-center" id="precoTotal"></td>
+                        </tr>
+                     </tbody>
+
+                     </div>
+                     <!--
                      <tbody>
                         <tr>
                            <td class="col-sm-8 col-md-6">
@@ -125,6 +143,7 @@
                               <span class="glyphicon glyphicon-remove"></span>
                               </a>
                            </td>
+                        </tr>-->
                         <tr class="head_title">
                            <td>   </td>
                            <td>   </td>
@@ -133,7 +152,11 @@
                               <h2>Total</h2>
                            </td>
                            <td class="text-right">
-                              <h2>R$31.53</h2>
+                              <div>
+                                 <h2>
+                                    R$ <span id="total"></span>
+                                 </h2>
+                              </div>
                            </td>
                         </tr>
                         <tr>
@@ -142,20 +165,48 @@
                            <td>   </td>
                            <td>
                               <button type="button" class="btn btn-default">
-                              <span class="glyphicon glyphicon-shopping-cart"></span> Continuar Comprando
+                                 <span class="glyphicon glyphicon-shopping-cart"><a href="areaLogada.html"></span> Continuar Comprando
                               </button>
                            </td>
                            <td>
                               <button type="button" class="btn btn-lg">Finalizar</button>
+                           </td>
+                           <td>
+                              <button type="button" onclick=" localStorage.clear(); location.reload();"> Limpar carrinho </button>
                            </td>
                         </tr>
                      </tbody>
                   </table>
                </div>
             </div>
-         </div>
+
+            <script>
+             var total = 0; // variável que retorna o total dos produtos que estão na LocalStorage.
+             var i = 0;     // variável que irá percorrer as posições
+             var valor = 0; // variável que irá receber o preço do produto convertido em Float.
+             
+             for(i=1; i<=99; i++) // verifica até 99 produtos registrados na localStorage
+             {
+                var prod = localStorage.getItem("produto" + i + ""); // verifica se há recheio nesta posição. 
+                if(prod != null) 
+                { 
+                   // exibe os dados da lista dentro da div itens
+                   document.getElementById("quantidade").innerHTML += localStorage.getItem("qtd" + i);
+                   document.getElementById("produtos").innerHTML += localStorage.getItem("produto" + i);
+                   document.getElementById("precoUnitario").innerHTML += "R$: " + localStorage.getItem("valor" + i)/localStorage.getItem("qtd" + i) + ".00";
+                   document.getElementById("precoTotal").innerHTML += "R$: " + localStorage.getItem("valor" + i) + ".00";
+                   
+                   // calcula o total dos recheios
+                   valor = parseFloat(localStorage.getItem("valor" + i)); // valor convertido com o parseFloat()
+                   total = (total + valor); // arredonda para 2 casas decimais com o .toFixed(2)
+                }
+             } 
+             // exibe o total dos recheios
+             document.getElementById("total").innerHTML = total.toFixed(2); 
+            </script>
          </div>
       </section>
+
       <!-- Footer -->
       <footer>
          <div class="container">

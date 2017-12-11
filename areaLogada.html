@@ -58,7 +58,40 @@
                                  <li><a href="#products">Produtos</a></li>                               
                                  <li><a href="#contact">Contato</a></li>
                                  <li><a href="carrinho.html">Meu pedido</a></li>    
-                                 <li><a href="index.html">Sair</a></li>                                                          
+                                 <li><a href="index.html">Sair</a></li>
+                                 <li>
+                                    <i class="fa fa-shopping-cart fa-2x" data-toggle="modal" data-target="#modalCarrinho"></i>
+                                 </li>         
+                                 <li>
+                                    <div id="itens"></div>
+                                    <div>Total: <span id="total"></span> </div>
+                                     
+                                    <script>
+                                     var total = 0; // variável que retorna o total dos produtos que estão na LocalStorage.
+                                     var i = 0;     // variável que irá percorrer as posições
+                                     var valor = 0; // variável que irá receber o preço do produto convertido em Float.
+                                     
+                                     for(i=1; i<=99; i++) // verifica até 99 produtos registrados na localStorage
+                                     {
+                                        var prod = localStorage.getItem("produto" + i + ""); // verifica se há recheio nesta posição. 
+                                        if(prod != null) 
+                                        { 
+                                           // exibe os dados da lista dentro da div itens
+                                           document.getElementById("itens").innerHTML += localStorage.getItem("qtd" + i) + " x ";
+                                           document.getElementById("itens").innerHTML += localStorage.getItem("produto" + i);
+                                           document.getElementById("itens").innerHTML += " ";
+                                           document.getElementById("itens").innerHTML += "R$: " + localStorage.getItem("valor" + i) + "<hr>";
+                                     
+                                           // calcula o total dos recheios
+                                           valor = parseFloat(localStorage.getItem("valor" + i)); // valor convertido com o parseFloat()
+                                           total = (total + valor); // arredonda para 2 casas decimais com o .toFixed(2)
+                                        }
+                                     } 
+                                     // exibe o total dos recheios
+                                     document.getElementById("total").innerHTML = total.toFixed(2); 
+                                    </script>
+
+                                 </li>                                                 
                               </ul>
                            </div>                           
                            <!-- /.navbar-collapse -->
@@ -136,7 +169,7 @@
                            <div class="separetor2"></div>
                            <p>Brigadeiro ao leite (leite condensado, creme de leite, chocolate ao leite), granulado tradicional de cocolate.</p>
                         </div>
-                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#myModal"></i>
+                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#modalTradicional"></i>
                      </div>
                   </div>
                   <div class="col-md-6 col-sm-6 col-xs-12">
@@ -149,7 +182,7 @@
                            <div class="separetor2"></div>
                            <p>Brigadeiro amargo (leite condensado, creme de leite, cacau em pó e gema pasteurizada) e nibs de cacau (amêndoas de cacau).</p>
                         </div>
-                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#myModal"></i>
+                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#modalCacau"></i>
                      </div>
                   </div>
                   <div class="col-md-6 col-sm-6 col-xs-12">
@@ -162,7 +195,7 @@
                            <div class="separetor2"></div>
                            <p>Brigadeiro whisky (leite condensado, chocolate ao leite, chocolate em pó,  creme de leite, gema pasteurizada e whisky) e granulado meio amargo.</p>
                         </div>
-                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#myModal"></i>
+                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#modalWhisky"></i>
                      </div>
                   </div>
                   <div class="col-md-6 col-sm-6 col-xs-12">
@@ -175,7 +208,7 @@
                            <div class="separetor2"></div>
                            <p>Brigadeiro ao leite (leite condensado, creme de leite, chocolate ao leite, chocolate em pó e gema pasteurizada) e amêndoa lâminada.</p>
                         </div>
-                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#myModal"></i>
+                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#modalAmendoa"></i>
                      </div>
                   </div>
                   <div class="col-md-6 col-sm-6 col-xs-12">
@@ -188,7 +221,7 @@
                            <div class="separetor2"></div>
                            <p>Brigadeiro ao leite (leite condensado, creme de leite, chocolate ao leite, chocolate em pó e gema pasteurizada) e granulado ao leite.</p>
                         </div>
-                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#myModal"></i>
+                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#modalLeite"></i>
                      </div>
                   </div>
                   <div class="col-md-6 col-sm-6 col-xs-12">
@@ -201,7 +234,7 @@
                            <div class="separetor2"></div>
                            <p>Leite condensado zero lactose, chocolate em pó e creme de leite zero lactose).</p>
                         </div>
-                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#myModal"></i>
+                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#modalZero"></i>
                      </div>
                   </div>
                   <div class="col-md-6 col-sm-6 col-xs-12">
@@ -214,7 +247,7 @@
                            <div class="separetor2"></div>
                            <p>Brigadeiro branco (leite condensado, creme de leite e gema pasteurizada),chocolate branco (açúcar, manteiga de cacau, leite em pó integral, emulsificante lecitina de soja e aroma natural de baunilha).</p>
                         </div>
-                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#myModal"></i>
+                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#modalBranco"></i>
                      </div>
                   </div>
                   <div class="col-md-6 col-sm-6 col-xs-12">
@@ -227,7 +260,7 @@
                            <div class="separetor2"></div>
                            <p>Brigadeiro (leite condensado, chocolate ao leite, chocolate em pó, cacau em pó, creme de leite e gema pasteurizada), chocolate branco (açúcar, manteiga de cacau, leite em pó integral, emulsificante lecitina de soja e aroma natural de baunilha), chocolate ao leite.</p>
                         </div>
-                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#myModal"></i>
+                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#modalBemCasado"></i>
                      </div>
                   </div>
                   <div class="col-md-6 col-sm-6 col-xs-12">
@@ -240,7 +273,7 @@
                            <div class="separetor2"></div>
                            <p>Brigadeiro  (leite condensado, cream cheese, queijo  cremoso, chocolate ao leite, creme de leite, chocolate em pó, gema pasteurizada e semente de tonka) e biscoito negresco.</p>
                         </div>
-                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#myModal"></i>
+                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#modalTonka"></i>
                      </div>
                   </div>
                   <div class="col-md-6 col-sm-6 col-xs-12">
@@ -253,7 +286,7 @@
                            <div class="separetor2"></div>
                            <p>Brigadeiro ao leite (leite condensado, creme de leite, chocolate ao leite, chocolate em pó e gema pasteurizada) e biscoito cookie sabor chocolate farinha de trigo enriquecida com ferro e ácido fólico, gordura vegetal, açúcar, gotas de chocolate ao leite.</p>
                         </div>
-                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#myModal"></i>
+                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#modalCookie"></i>
                      </div>
                   </div>
                   <div class="col-md-6 col-sm-6 col-xs-12">
@@ -266,7 +299,7 @@
                            <div class="separetor2"></div>
                            <p>Leite condensado, creme de leite e gema pasteurizada, doce de leite, canela em pó e açúcar</p>
                         </div>
-                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#myModal"></i>
+                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#modalChurros"></i>
                      </div>
                   </div>
                   <div class="col-md-6 col-sm-6 col-xs-12">
@@ -279,7 +312,7 @@
                            <div class="separetor2"></div>
                            <p>Brigadeiro cocadinha (leite condensado, leite de coco, creme de leite e gema pasteurizada) e coco ralado.</p>
                         </div>
-                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#myModal"></i>
+                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#modalCocadinha"></i>
                      </div>
                   </div>
                   <div class="col-md-6 col-sm-6 col-xs-12">
@@ -292,7 +325,7 @@
                            <div class="separetor2"></div>
                            <p>Brigadeiro ao leite diet (leite condensado diet, chocolate ao leite diet, cacacu em pó, creme de leite e gema pasteurizada) e chocolate ao leite diet.</p>
                         </div>
-                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#myModal"></i>
+                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#modalDietLeite"></i>
                      </div>
                   </div>
                   <div class="col-md-6 col-sm-6 col-xs-12">
@@ -305,7 +338,7 @@
                            <div class="separetor2"></div>
                            <p>Brigadeiro branco (leite condensado, creme de leite e gema pasteurizada), chocolate branco e raspas de limão.</p>
                         </div>
-                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#myModal"></i>
+                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#modalLimao"></i>
                      </div>
                   </div>
                   <div class="col-md-6 col-sm-6 col-xs-12">
@@ -318,7 +351,7 @@
                            <div class="separetor2"></div>
                            <p>Brigadeiro amargo (leite condensado, creme de leite, cacau em pó e gema pasteurizada) e nibs de cacau (amêndoas de cacau).</p>
                         </div>
-                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#myModal"></i>
+                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#modalAmargo"></i>
                      </div>
                   </div>
                   <div class="col-md-6 col-sm-6 col-xs-12">
@@ -331,7 +364,7 @@
                            <div class="separetor2"></div>
                            <p>Brigadeiro de negrinho (leite condensado, chocolate 50%, chocolate em pó, creme de leite e gema pasteurizada), negresco e granulado.</p>
                         </div>
-                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#myModal"></i>
+                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#modalNegresco"></i>
                      </div>
                   </div>
                   <div class="col-md-6 col-sm-6 col-xs-12">
@@ -344,7 +377,7 @@
                            <div class="separetor2"></div>
                            <p>Brigadeiro (leite condensado, leite em pó, creme de leite e gema pasteurizada) e leite em pó (leite integral).</p>
                         </div>
-                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#myModal"></i>
+                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#modalNinho"></i>
                      </div>
                   </div>
                   <div class="col-md-6 col-sm-6 col-xs-12">
@@ -357,7 +390,7 @@
                            <div class="separetor2"></div>
                            <p>Brigadeiro nutelita (leite condensado, pasta de avelã,  creme de leite e gema pasteurizada) e avelã triturada.</p>
                         </div>
-                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#myModal"></i>
+                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#modalNinhoNutella"></i>
                      </div>
                   </div>
                   <div class="col-md-6 col-sm-6 col-xs-12">
@@ -370,7 +403,7 @@
                            <div class="separetor2"></div>
                            <p>Leite condensado zero lactose, leite em pó zero lactose e creme de leite zero lactose.</p>
                         </div>
-                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#myModal"></i>
+                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#modalZeroNinho"></i>
                      </div>
                   </div>
                   <div class="col-md-6 col-sm-6 col-xs-12">
@@ -383,7 +416,7 @@
                            <div class="separetor2"></div>
                            <p>Brigadeiro (leite condensado, creme de leite, chocolate ao leite, chocolate em pó e gema pasteurizada) e nozes.</p>
                         </div>
-                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#myModal"></i>
+                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#modalNozes"></i>
                      </div>
                   </div>
                   <div class="col-md-6 col-sm-6 col-xs-12">
@@ -396,7 +429,7 @@
                            <div class="separetor2"></div>
                            <p>Brigadeiro nutelita (leite condensado, pasta de avelã,  creme de leite e gema pasteurizada) e avelã triturada.</p>
                         </div>
-                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#myModal"></i>
+                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#modalNutella"></i>
                      </div>
                   </div>
                   <div class="col-md-6 col-sm-6 col-xs-12">
@@ -409,7 +442,7 @@
                            <div class="separetor2"></div>
                            <p>Brigadeiro (leite condensado, creme de leite, chocolate ao leite, chocolate em pó e gema pasteurizada) e paçoca (amendoim torrado, açúcar e sal).</p>
                         </div>
-                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#myModal"></i>
+                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#modalPacoca"></i>
                      </div>
                   </div>
                   <div class="col-md-6 col-sm-6 col-xs-12">
@@ -422,7 +455,7 @@
                            <div class="separetor2"></div>
                            <p>Brigadeiro malte (leite condensado, creme de leite, malte e granulado (açúcar, manteiga de cacau, leite em pó integral, aroma natural de baunilha).</p>
                         </div>
-                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#myModal"></i>
+                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#modalPecado"></i>
                      </div>
                   </div>
                   <div class="col-md-6 col-sm-6 col-xs-12">
@@ -435,12 +468,12 @@
                            <div class="separetor2"></div>
                            <p>Brigadeiro morango(leite condensado, chocolate sabor morango, creme de leite e gema pasteurizada) e granulado morango, cripy de cereais.</p>
                         </div>
-                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#myModal"></i>
+                        <i class="fa fa-shopping-cart fa-3x" data-toggle="modal" data-target="#modalCrispy"></i>
                      </div>
                   </div>
                </div>
             </div>
-            <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal fade" id="modalTradicional" role="dialog">
                <div class="modal-dialog modal-sm">
                   <div class="modal-content">
                      <div class="single_header">
@@ -449,8 +482,8 @@
                      <div class="modal-body">
                         <p>
                            <label for="usr">Quantidade:</label>
-                           <input type="number" class="form-carrinho" id="quantidadeBrigadeiros" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
-                           <button type="button" class="btn btn-carrinho" data-dismiss="modal">
+                           <input type="number" class="form-carrinho" id="qtdTradicional" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Tradicional', document.getElementById('qtdTradicional').value, '2.00', 1)">
                            <i class="fa fa-shopping-cart fa-2x"></i>
                            </button>
                         </p>
@@ -458,6 +491,463 @@
                   </div>
                </div>
             </div>
+
+            <div class="modal fade" id="modalCacau" role="dialog">
+               <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                     <div class="single_header">
+                        <h4 class="modal-title">Adicionar ao carrinho</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label for="usr">Quantidade:</label>
+                           <input type="number" class="form-carrinho" id="qtdCacau" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Cacau', document.getElementById('qtdCacau').value, '2.00', 2)">
+                           <i class="fa fa-shopping-cart fa-2x"></i>
+                           </button>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="modal fade" id="modalWhisky" role="dialog">
+               <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                     <div class="single_header">
+                        <h4 class="modal-title">Adicionar ao carrinho</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label for="usr">Quantidade:</label>
+                           <input type="number" class="form-carrinho" id="qtdWhisky" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Whisky', document.getElementById('qtdWhisky').value, '2.00', 3)">
+                           <i class="fa fa-shopping-cart fa-2x"></i>
+                           </button>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="modal fade" id="modalAmendoa" role="dialog">
+               <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                     <div class="single_header">
+                        <h4 class="modal-title">Adicionar ao carrinho</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label for="usr">Quantidade:</label>
+                           <input type="number" class="form-carrinho" id="qtdAmendoa" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Amêndoa', document.getElementById('qtdAmendoa').value, '2.00', 4)">
+                           <i class="fa fa-shopping-cart fa-2x"></i>
+                           </button>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="modal fade" id="modalLeite" role="dialog">
+               <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                     <div class="single_header">
+                        <h4 class="modal-title">Adicionar ao carrinho</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label for="usr">Quantidade:</label>
+                           <input type="number" class="form-carrinho" id="qtdLeite" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro ao Leite', document.getElementById('qtdLeite').value, '2.00', 5)">
+                           <i class="fa fa-shopping-cart fa-2x"></i>
+                           </button>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="modal fade" id="modalZero" role="dialog">
+               <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                     <div class="single_header">
+                        <h4 class="modal-title">Adicionar ao carrinho</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label for="usr">Quantidade:</label>
+                           <input type="number" class="form-carrinho" id="qtdZero" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Zero', document.getElementById('qtdZero').value, '2.00', 6)">
+                           <i class="fa fa-shopping-cart fa-2x"></i>
+                           </button>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="modal fade" id="modalBranco" role="dialog">
+               <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                     <div class="single_header">
+                        <h4 class="modal-title">Adicionar ao carrinho</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label for="usr">Quantidade:</label>
+                           <input type="number" class="form-carrinho" id="qtdBranco" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Branco', document.getElementById('qtdBranco').value, '2.00', 7)">
+                           <i class="fa fa-shopping-cart fa-2x"></i>
+                           </button>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="modal fade" id="modalBemCasado" role="dialog">
+               <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                     <div class="single_header">
+                        <h4 class="modal-title">Adicionar ao carrinho</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label for="usr">Quantidade:</label>
+                           <input type="number" class="form-carrinho" id="qtdBemCasado" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Bem Casado', document.getElementById('qtdBemCasado').value, '2.00', 8)">
+                           <i class="fa fa-shopping-cart fa-2x"></i>
+                           </button>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="modal fade" id="modalTonka" role="dialog">
+               <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                     <div class="single_header">
+                        <h4 class="modal-title">Adicionar ao carrinho</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label for="usr">Quantidade:</label>
+                           <input type="number" class="form-carrinho" id="qtdTonka" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Tonka', document.getElementById('qtdTonka').value, '2.00', 9)">
+                           <i class="fa fa-shopping-cart fa-2x"></i>
+                           </button>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="modal fade" id="modalCookie" role="dialog">
+               <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                     <div class="single_header">
+                        <h4 class="modal-title">Adicionar ao carrinho</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label for="usr">Quantidade:</label>
+                           <input type="number" class="form-carrinho" id="qtdCookie" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Cookie', document.getElementById('qtdCookie').value, '2.00', 10)">
+                           <i class="fa fa-shopping-cart fa-2x"></i>
+                           </button>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="modal fade" id="modalChurros" role="dialog">
+               <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                     <div class="single_header">
+                        <h4 class="modal-title">Adicionar ao carrinho</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label for="usr">Quantidade:</label>
+                           <input type="number" class="form-carrinho" id="qtdChurros" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Churros', document.getElementById('qtdChurros').value, '2.00', 11)">
+                           <i class="fa fa-shopping-cart fa-2x"></i>
+                           </button>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="modal fade" id="modalCocadinha" role="dialog">
+               <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                     <div class="single_header">
+                        <h4 class="modal-title">Adicionar ao carrinho</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label for="usr">Quantidade:</label>
+                           <input type="number" class="form-carrinho" id="qtdCocadinha" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Cocadinha', document.getElementById('qtdCocadinha').value, '2.00', 12)">
+                           <i class="fa fa-shopping-cart fa-2x"></i>
+                           </button>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="modal fade" id="modalDietLeite" role="dialog">
+               <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                     <div class="single_header">
+                        <h4 class="modal-title">Adicionar ao carrinho</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label for="usr">Quantidade:</label>
+                           <input type="number" class="form-carrinho" id="qtdDietLeite" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Diet ao Leite', document.getElementById('qtdDietLeite').value, '2.00', 13)">
+                           <i class="fa fa-shopping-cart fa-2x"></i>
+                           </button>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="modal fade" id="modalLimao" role="dialog">
+               <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                     <div class="single_header">
+                        <h4 class="modal-title">Adicionar ao carrinho</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label for="usr">Quantidade:</label>
+                           <input type="number" class="form-carrinho" id="qtdLimao" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro de Limão', document.getElementById('qtdLimao').value, '2.00', 14)">
+                           <i class="fa fa-shopping-cart fa-2x"></i>
+                           </button>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="modal fade" id="modalAmargo" role="dialog">
+               <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                     <div class="single_header">
+                        <h4 class="modal-title">Adicionar ao carrinho</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label for="usr">Quantidade:</label>
+                           <input type="number" class="form-carrinho" id="qtdAmargo" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Amargo', document.getElementById('qtdAmargo').value, '2.00', 15)">
+                           <i class="fa fa-shopping-cart fa-2x"></i>
+                           </button>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="modal fade" id="modalNegresco" role="dialog">
+               <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                     <div class="single_header">
+                        <h4 class="modal-title">Adicionar ao carrinho</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label for="usr">Quantidade:</label>
+                           <input type="number" class="form-carrinho" id="qtdNegresco" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Negresco', document.getElementById('qtdNegresco').value, '2.00', 16)">
+                           <i class="fa fa-shopping-cart fa-2x"></i>
+                           </button>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="modal fade" id="modalNinho" role="dialog">
+               <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                     <div class="single_header">
+                        <h4 class="modal-title">Adicionar ao carrinho</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label for="usr">Quantidade:</label>
+                           <input type="number" class="form-carrinho" id="qtdNinho" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Leite Ninho', document.getElementById('qtdNinho').value, '2.00', 17)">
+                           <i class="fa fa-shopping-cart fa-2x"></i>
+                           </button>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="modal fade" id="modalNinhoNutella" role="dialog">
+               <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                     <div class="single_header">
+                        <h4 class="modal-title">Adicionar ao carrinho</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label for="usr">Quantidade:</label>
+                           <input type="number" class="form-carrinho" id="qtdNinhoNutella" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Ninho com Nutella', document.getElementById('qtdNinhoNutella').value, '2.00', 18)">
+                           <i class="fa fa-shopping-cart fa-2x"></i>
+                           </button>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="modal fade" id="modalZeroNinho" role="dialog">
+               <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                     <div class="single_header">
+                        <h4 class="modal-title">Adicionar ao carrinho</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label for="usr">Quantidade:</label>
+                           <input type="number" class="form-carrinho" id="qtdNinhoNutella" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Zero Ninho', document.getElementById('qtdNinhoNutella').value, '2.00', 19)">
+                           <i class="fa fa-shopping-cart fa-2x"></i>
+                           </button>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="modal fade" id="modalNozes" role="dialog">
+               <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                     <div class="single_header">
+                        <h4 class="modal-title">Adicionar ao carrinho</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label for="usr">Quantidade:</label>
+                           <input type="number" class="form-carrinho" id="qtdNozes" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Nozes', document.getElementById('qtdNozes').value, '2.00', 20)">
+                           <i class="fa fa-shopping-cart fa-2x"></i>
+                           </button>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="modal fade" id="modalNutella" role="dialog">
+               <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                     <div class="single_header">
+                        <h4 class="modal-title">Adicionar ao carrinho</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label for="usr">Quantidade:</label>
+                           <input type="number" class="form-carrinho" id="qtdNutella" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Nutella', document.getElementById('qtdNutella').value, '2.00', 21)">
+                           <i class="fa fa-shopping-cart fa-2x"></i>
+                           </button>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="modal fade" id="modalPacoca" role="dialog">
+               <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                     <div class="single_header">
+                        <h4 class="modal-title">Adicionar ao carrinho</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label for="usr">Quantidade:</label>
+                           <input type="number" class="form-carrinho" id="qtdPacoca" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Paçoca', document.getElementById('qtdPacoca').value, '2.00', 22)">
+                           <i class="fa fa-shopping-cart fa-2x"></i>
+                           </button>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="modal fade" id="modalPecado" role="dialog">
+               <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                     <div class="single_header">
+                        <h4 class="modal-title">Adicionar ao carrinho</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label for="usr">Quantidade:</label>
+                           <input type="number" class="form-carrinho" id="qtdPecado" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Pecado', document.getElementById('qtdPecado').value, '2.00', 23)">
+                           <i class="fa fa-shopping-cart fa-2x"></i>
+                           </button>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="modal fade" id="modalCrispy" role="dialog">
+               <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                     <div class="single_header">
+                        <h4 class="modal-title">Adicionar ao carrinho</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label for="usr">Quantidade:</label>
+                           <input type="number" class="form-carrinho" id="qtdCrispy" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Crispy', document.getElementById('qtdCrispy').value, '2.00', 24)">
+                           <i class="fa fa-shopping-cart fa-2x"></i>
+                           </button>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="modal fade" id="modalCarrinho" role="dialog">
+               <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                     <div class="single_header">
+                        <h4 class="modal-title">Carrinho de Compras:</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label for="usr">Quantidade:</label>
+                           <input type="number" class="form-carrinho" id="qtdCrispy" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Crispy', document.getElementById('qtdCrispy').value, '2.00', 24)">
+                           <i class="fa fa-shopping-cart fa-2x"></i>
+                           </button>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
          </div>
       </section>
       <section id="counterUp" class="counterUp">
@@ -582,6 +1072,7 @@
       <script type="text/javascript" src="js/mixitup/jquery.mixitup.min.js"></script>
       <script type="text/javascript" src="js/masonry/masonry.pkgd.min.js"></script>
       <script type="text/javascript" src="js/index.js"></script>
+      <script type="text/javascript" src="js/carrinho.js"></script>
       <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
       
    </body>
