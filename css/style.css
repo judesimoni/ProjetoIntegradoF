@@ -1248,7 +1248,11 @@ ul {
 }
 
 .fa-shopping-cart fa-2x{
-	margin-top:31%;
+	margin-top:31%;	
+}
+
+.cursor {
+	cursor:pointer;
 }
 
 .col-xs-8-carrinho {
