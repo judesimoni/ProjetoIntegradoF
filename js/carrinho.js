@@ -27,3 +27,13 @@ function AddCarrinho(produto, qtd, valor, posicao){
 	} else 
 	swal("Sucesso!", "Compra finalizada com sucesso!", "success");
  }
+
+ function calcularFrete() {
+	var cep = $('#idCEP').val();
+
+	if(!cep) {
+		swal("Erro!", "Informe o CEP do endereço de entrega", "error");
+	} else {
+		swal("Valor do frete - R$ 12,00!");
+	}	
+ }
