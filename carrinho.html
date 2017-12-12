@@ -101,8 +101,8 @@
                               </div>
                            </td>
                            <td class="col-sm-1 col-md-1 text-center" id="quantidade"></td>
-                           <td class="col-sm-1 col-md-1 text-center" id="precoUnitario"></td>
-                           <td class="col-sm-1 col-md-1 text-center" id="precoTotal"></td>
+                           <td class="col-sm-1 col-md-3 text-center" id="precoUnitario"></td>
+                           <td class="col-sm-1 col-md-2 text-center" id="precoTotal"></td>
                         </tr>
                      </tbody>
 
@@ -117,7 +117,7 @@
                            <td class="text-right">
                               <div>
                                  <h2>
-                                    R$ <span id="total"></span>
+                                      <span id="total"></span>
                                  </h2>
                               </div>
                            </td>
@@ -155,10 +155,10 @@
                 if(prod != null) 
                 { 
                    // exibe os dados da lista dentro da div itens
-                   document.getElementById("quantidade").innerHTML += localStorage.getItem("qtd" + i);
-                   document.getElementById("produtos").innerHTML += localStorage.getItem("produto" + i);
-                   document.getElementById("precoUnitario").innerHTML += "R$: " + localStorage.getItem("valor" + i)/localStorage.getItem("qtd" + i) + ".00";
-                   document.getElementById("precoTotal").innerHTML += "R$: " + localStorage.getItem("valor" + i) + ".00";
+                   document.getElementById("quantidade").innerHTML += localStorage.getItem("qtd" + i) + "<p>";
+                   document.getElementById("produtos").innerHTML += localStorage.getItem("produto" + i) + "<p>";
+                   document.getElementById("precoUnitario").innerHTML += "R$: " + localStorage.getItem("valor" + i)/localStorage.getItem("qtd" + i) + ".00" + "<p>";
+                   document.getElementById("precoTotal").innerHTML += "R$: " + localStorage.getItem("valor" + i) + ".00" + "<p>";
                    
                    // calcula o total dos recheios
                    valor = parseFloat(localStorage.getItem("valor" + i)); // valor convertido com o parseFloat()
@@ -166,7 +166,7 @@
                 }
              } 
              // exibe o total dos recheios
-             document.getElementById("total").innerHTML = total.toFixed(2); 
+             document.getElementById("total").innerHTML = "R$ " +total.toFixed(2); 
             </script>
          </div>
       </section>

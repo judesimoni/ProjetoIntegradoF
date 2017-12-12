@@ -60,11 +60,11 @@
                                  <li><a href="carrinho.html">Meu pedido</a></li>    
                                  <li><a href="index.html" onclick="localStorage.clear()">Sair</a></li>
                                  <li>
-                                    <i class="fa fa-shopping-cart fa-2x" data-toggle="modal" data-target="#modalCarrinho"></i>
+                                    <i class="fa fa-shopping-cart fa-2x" data-toggle="modal"></i>
                                  </li>         
                                  <li>
                                     <div id="itens"></div>
-                                    <div>Total: <span id="total"></span> </div>
+                                    <div> Total: <span id="total"></span> </div>
                                      
                                     <script>
                                      var total = 0; // variável que retorna o total dos produtos que estão na LocalStorage.
@@ -483,7 +483,7 @@
                         <p>
                            <label for="usr">Quantidade:</label>
                            <input type="number" class="form-carrinho" id="qtdTradicional" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
-                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Tradicional', document.getElementById('qtdTradicional').value, '2.00', 1)">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Tradicional', document.getElementById('qtdTradicional').value, '1.00', 1)">
                            <i class="fa fa-shopping-cart fa-2x"></i>
                            </button>
                         </p>
@@ -578,7 +578,7 @@
                         <p>
                            <label for="usr">Quantidade:</label>
                            <input type="number" class="form-carrinho" id="qtdZero" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
-                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Zero', document.getElementById('qtdZero').value, '2.00', 6)">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Zero', document.getElementById('qtdZero').value, '3.00', 6)">
                            <i class="fa fa-shopping-cart fa-2x"></i>
                            </button>
                         </p>
@@ -692,7 +692,7 @@
                         <p>
                            <label for="usr">Quantidade:</label>
                            <input type="number" class="form-carrinho" id="qtdCocadinha" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
-                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Cocadinha', document.getElementById('qtdCocadinha').value, '2.00', 12)">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Cocadinha', document.getElementById('qtdCocadinha').value, '1.00', 12)">
                            <i class="fa fa-shopping-cart fa-2x"></i>
                            </button>
                         </p>
@@ -806,7 +806,7 @@
                         <p>
                            <label for="usr">Quantidade:</label>
                            <input type="number" class="form-carrinho" id="qtdNinhoNutella" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
-                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Ninho com Nutella', document.getElementById('qtdNinhoNutella').value, '2.00', 18)">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Ninho com Nutella', document.getElementById('qtdNinhoNutella').value, '3.00', 18)">
                            <i class="fa fa-shopping-cart fa-2x"></i>
                            </button>
                         </p>
@@ -825,7 +825,7 @@
                         <p>
                            <label for="usr">Quantidade:</label>
                            <input type="number" class="form-carrinho" id="qtdNinhoNutella" onkeyup="somenteNumeros(this);" min="0" onkeypress="return event.charCode>=48">
-                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Zero Ninho', document.getElementById('qtdNinhoNutella').value, '2.00', 19)">
+                           <button type="button" class="btn btn-carrinho" data-dismiss="modal" onclick="AddCarrinho('Brigadeiro Zero Ninho', document.getElementById('qtdNinhoNutella').value, '3.00', 19)">
                            <i class="fa fa-shopping-cart fa-2x"></i>
                            </button>
                         </p>
